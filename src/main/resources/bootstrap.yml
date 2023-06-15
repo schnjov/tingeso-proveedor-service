@@ -1,0 +1,22 @@
+spring:
+  devtools:
+    restart:
+      additional-paths: src/main/java
+  application:
+    name: proveedor-service
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8083
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/proveedor
+    username: postgres
+    password: theyugi27
+  jpa:
+    show-sql: true
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: update
+server:
+  port: 8083
