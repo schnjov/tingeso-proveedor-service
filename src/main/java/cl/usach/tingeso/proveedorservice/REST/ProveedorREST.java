@@ -34,4 +34,9 @@ public class ProveedorREST {
         return ResponseEntity.ok().body(proveedorService.exist(codigo));
     }
 
+    @GetMapping("/{codigo}")
+    public ResponseEntity<ProveedorEntity> getByCodigo(@PathVariable("codigo") String codigo){
+        return proveedorService.getByCodigo(codigo);
+    }
+
 }

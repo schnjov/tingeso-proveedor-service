@@ -50,4 +50,15 @@ public class ProveedorService {
     public Boolean exist(String codigo) {
         return proveedorRepository.existsById(codigo);
     }
+
+    public ResponseEntity<ProveedorEntity> getByCodigo(String codigo) {
+        try {
+            if (!exist(codigo))
+                throw new RuntimeException();
+            ProveedorEntity proveedorEntity = proveedorRepository.findByCodigo(codigo);
+            return ResponseEntity.ok().body(proveedorEntity);
+        } catch (Exception e) {
+            return ResponseEntity.noContent().build();
+        }
+    }
 }
